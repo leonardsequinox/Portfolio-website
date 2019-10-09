@@ -9,7 +9,7 @@ Phone:	'.$_POST['phone'].'<br />
 Email:	'.$_POST['emailid'].'<br />
 Comments:	'.$_POST['comments'].'
 ';
-    require "PHPMailer-master/class.phpmailer.php"; //include phpmailer class
+    require "class.phpmailer.php"; //include phpmailer class
       
     // Instantiate Class  
     $mail = new PHPMailer();  
@@ -19,7 +19,7 @@ Comments:	'.$_POST['comments'].'
     $mail->SMTPAuth = true;         // Connection with the SMTP does require authorization    
     $mail->SMTPSecure = "ssl";      // Connect using a TLS connection  
     $mail->Host = "smtp.gmail.com";  //Gmail SMTP server address
-    $mail->Port = 465;  //Gmail SMTP port
+    $mail->Port = 995;  //Gmail SMTP port
     $mail->Encoding = '7bit';
     
     // Authentication  
@@ -38,6 +38,7 @@ Comments:	'.$_POST['comments'].'
 	$message = $result ? '<div class="alert alert-success" role="alert"><strong>Success!</strong>Message Sent Successfully!</div>' : '<div class="alert alert-danger" role="alert"><strong>Error!</strong>There was a problem delivering the message.</div>';  
 
 	unset($mail);
+    
 
 }
 ?>
